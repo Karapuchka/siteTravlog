@@ -104,47 +104,57 @@
                         <ul class="side-panel__list">
                             <li class="side-panel__list-item side-panel__list-item--no-active"><span class="side-panel__list-item-title">Дизайн (2)</span>
                                 <ul class="side-panel__sublist">
-                                    <li class="sudi-panel__sublist-item">Item</li>
-                                    <li class="sudi-panel__sublist-item">Item</li>
+                                    <li class="side-panel__sublist-item">Item</li>
+                                    <li class="side-panel__sublist-item">Item</li>
                                 </ul>
                             </li>
                             <li class="side-panel__list-item side-panel__list-item--no-active"><span class="side-panel__list-item-title">Вёртска (5)</span>
                                 <ul class="side-panel__sublist">
-                                    <li class="sudi-panel__sublist-item">Item</li>
-                                    <li class="sudi-panel__sublist-item">Item</li>
-                                    <li class="sudi-panel__sublist-item">Item</li>
-                                    <li class="sudi-panel__sublist-item">Item</li>
-                                    <li class="sudi-panel__sublist-item">Item</li>
+                                    <li class="side-panel__sublist-item">Item</li>
+                                    <li class="side-panel__sublist-item">Item</li>
+                                    <li class="side-panel__sublist-item">Item</li>
+                                    <li class="side-panel__sublist-item">Item</li>
+                                    <li class="side-panel__sublist-item">Item</li>
                                 </ul>
                             </li>
                             <li class="side-panel__list-item side-panel__list-item--no-active"><span class="side-panel__list-item-title">Видео (1)</span>
                                 <ul class="side-panel__sublist">
-                                    <li class="sudi-panel__sublist-item">Item</li>
+                                    <li class="side-panel__sublist-item">Item</li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
-                    <!-- Доделать верстку -->
+
                     <div class="side-panel__item">
                         <div class="side-panel__title">Последнии записи</div>
                         <ul class="side-panel__list">
-                            <li class="side-panel__list-item">
-                                <div class="side-panel__list-images"></div>
-                                <span class="side-panel__list-item-title">Дизайн (2)</span>
+                            <li class="side-panel__list-item side-panel__list-item--list-style-none">
+                                <div class="side-panel__list-images">
+                                    <img src="images/lastRecord/item1.jpg" alt="Nature image" class="side-panel__list-images-img">
+                                </div>
+                                <span class="side-panel__list-item-title">Весна</span>
                             </li>
-                            <li class="side-panel__list-item">
-                                <div class="side-panel__list-images"></div>
-                                <span class="side-panel__list-item-title">Вёртска (5)</span>
+                            <li class="side-panel__list-item side-panel__list-item--list-style-none">
+                                <div class="side-panel__list-images">
+                                    <img src="images/lastRecord/item2.jpg" alt="Nature image" class="side-panel__list-images-img">
+                                </div>
+                                <span class="side-panel__list-item-title">Лето</span>
                             </li>
-                            <li class="side-panel__list-item">
-                                <div class="side-panel__list-images"></div>
-                                <span class="side-panel__list-item-title">Видео (1)</span>
+                            <li class="side-panel__list-item side-panel__list-item--list-style-none">
+                                <div class="side-panel__list-images">
+                                    <img src="images/lastRecord/item3.jpg" alt="Nature image" class="side-panel__list-images-img">
+                                </div>
+                                <span class="side-panel__list-item-title">Осень</span>
                             </li>
                         </ul>
                     </div>
 
                     <div class="side-panel__item">
                         <div class="side-panel__title">Подписка на рассылку</div>
+                        <form class="side-panel__form" action="#" method="post" enctype="multipart/form-data">
+                            <input class="side-panel__form-input" type="email" placeholder="Ваш email">
+                            <input class="side-panel__form-btn" type="button" value="">
+                        </form>
                     </div>
                 </aside>
 
@@ -152,10 +162,23 @@
         </main>
         
         <footer class="footer">
-            <div class="container"></div>
+            <div class="container footer-content">
+                <ul class="footer__list">
+                    <li class="footer__list-item">
+                        <img src="images/footerLinkIcon/item1.png" alt="Social link icon">
+                    </li>
+                    <li class="footer__list-item">
+                        <img src="images/footerLinkIcon/item2.png" alt="Social link icon">
+                    </li>
+                    <li class="footer__list-item">
+                        <img src="images/footerLinkIcon/item3.png" alt="Social link icon">
+                    </li>
+                </ul>
+            </div>
         </footer>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
     <script src="scripts/main.min.js"></script>
