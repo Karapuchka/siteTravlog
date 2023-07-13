@@ -1,0 +1,68 @@
+.logo-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    user-select: none;
+
+    cursor: pointer;
+
+    &__tree{
+        display: flex;
+
+        margin-bottom: 5px;
+
+        &__right, &__left{
+            position: relative;
+            width: 26px;
+            height: 38px;
+        }
+
+        &__right{
+            background: url('../../resources/images/tree-right.png') no-repeat center center/cover;
+            background-size: 100%;
+
+            z-index: 2;
+
+            left: -32px;
+        }
+
+        &__left{
+            background: url('../../resources/images/tree-left.png') no-repeat center center/cover;
+            background-size: 100%;
+
+            z-index: 1;
+
+            left: 32px;
+        }
+    }
+    
+    &__label{
+        font-family: "Montserrat Alternates";
+        font-weight: 700;
+        font-size: 15px;
+    }
+}
+
+.logo-icon--preloader{
+
+    cursor: default;
+
+    .logo-icon__tree__right, .logo-icon__tree__left{
+        width: 78px;
+        height: 114px;
+    }
+    
+    .logo-icon__tree__right{
+        left: -40px;
+    }
+
+    .logo-icon__tree__left{
+        left: 40px;
+    }
+
+    .logo-icon__label{
+        font-size: 30px;
+    }
+}
