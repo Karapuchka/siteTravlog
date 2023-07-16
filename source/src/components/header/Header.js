@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import Search from './search/Search.js';
 import Menu from './menu/Menu.js';
@@ -15,9 +15,11 @@ function Header(){
 
             <LogoIcon parrent={''} />
 
-            <Menu />
-
-            <Search />
+            <div className='header__navigator'>
+                <Menu />
+    
+                <Search />
+            </div>
 
        </div>
 

@@ -1,5 +1,7 @@
 .header__nav{
 
+    margin-right: 100px;
+
     &__list{
 
         display: flex;
@@ -15,6 +17,8 @@
             list-style: none;
 
             cursor: pointer;
+
+            margin-right: 35px;
 
             &__link{
                 color: black;
@@ -50,6 +54,11 @@
 
                 transition: transform .7s ease;
             }
+        
+        }
+
+        &__item:last-child{
+            margin-right: 0;
         }
     }
 }
