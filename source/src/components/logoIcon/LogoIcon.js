@@ -4,7 +4,6 @@ import PropType from 'prop-types';
 
 import './logoIcon.scss';
 
-
 function LogoIcon({parrent}){
 
     const [life, setLife] = useState(true);

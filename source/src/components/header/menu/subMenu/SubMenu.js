@@ -12,7 +12,7 @@ function SubMenu({open}){
         <AnimatePresence>
             {open && (
                     <motion.ul exit={{opacity: 0}} transition={{duration: .4}} style={{alignItems: 'flex-start'}} className='header__nav__list sub-menu'>
-                        {arrayItem.map((item, index) => <SubMenuItem text={item} index={index} />)}
+                        {arrayItem.map((item, index) => <SubMenuItem key={item} text={item} index={index} />)}
                     </motion.ul>
                 )}
         </AnimatePresence>

@@ -1,0 +1,16 @@
+.main{
+
+    background-color: #eae8e8;
+
+    padding: 30px 0;
+
+    width: 100%;
+
+    flex: 1 1 auto;
+
+    &__container{
+        display: flex;
+        align-items: flex-start;
+    }
+
+}
