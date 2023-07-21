@@ -38,23 +38,7 @@
                 height: 2px;
 
                 background-color: #000;
-
-                transform: scaleX(0);
-                transform-origin: left;
-
-                transition: transform .7s ease;
             }
-        }
-
-        &__item:hover{
-            .header__nav__list__item__line{
-
-                transform: scaleX(1);
-                transform-origin: right;
-
-                transition: transform .7s ease;
-            }
-        
         }
 
         &__item:last-child{

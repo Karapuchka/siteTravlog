@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import Search from './search/Search.js';
 import Menu from './menu/Menu.js';
 import LogoIcon from '../logoIcon/LogoIcon.js';
 
@@ -15,11 +14,7 @@ function Header(){
 
             <LogoIcon parrent={''} />
 
-            <div className='header__navigator'>
-                <Menu />
-    
-                <Search />
-            </div>
+            <Menu />
 
        </div>
 
