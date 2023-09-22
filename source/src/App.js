@@ -1,9 +1,5 @@
-import { useState, useEffect } from 'react';
-
-import Header from './components/header/Header.js';
-import Main from './components/main/Main.js';
-import Preloader from './components/preloader/Preloader.js';
-
+import Header from './components/header/Header';
+import { ModalContextProvider } from './resources/scripts/ModalContext';
 import './App.scss';
 
 function App() {
@@ -11,14 +7,9 @@ function App() {
   return (
 
     <div className='wrapper'>
-
-      <Preloader />
-
-      <div className='wrapper-container'>
-        <Header />
-        <Main page={'winter'}/>
-      </div>
-
+      <ModalContextProvider> 
+        <Header/>
+      </ModalContextProvider>
     </div>
 
   )

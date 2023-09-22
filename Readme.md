@@ -4,12 +4,12 @@ ___
 ### Использованные языки:
 1. HTML;
 2. CSS;
-3. JavaScript.
+3. JavaScript (React).
 ___
 
 ### Макет
-* [Ссылка на макет]()
-* [Логотип](https://www.flaticon.com/ru/free-icon/planet-earth_1598196?term=%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D0%B0&page=1&position=5&page=1&position=5&related_id=1598196&origin=search)
+* [Ссылка на макет](https://www.figma.com/file/84L4vb4eTH8dxktS6uZI1Z/landing?type=design&node-id=0-1&mode=design&t=qZY7tS1Iu5VTFOuW-0)
+* [Источник](https://t.me/HtmlCodeForMoney_bot)
 
 ___
 
@@ -17,7 +17,7 @@ ___
 
 ##### Препроцессоры и библиотеки
 1. Каскадная таблица стилей (CSS) была написана с ипользованием препроцессора SCSS.
-2. Для написания анимации (в частности триггеры на скролл) была использована JavaScript библиотека [GreenSock](https://greensock.com/docs/v3/Installation?checked=core,scrollTrigger).
+2. 
 3. Для определения с какого устройства пользователь зашел на сайт, была использована библиотека [mobile-detect.js](http://hgoebl.github.io/mobile-detect.js/).
 
 ##### Сборка проекта

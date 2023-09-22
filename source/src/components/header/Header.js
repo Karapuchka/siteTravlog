@@ -1,23 +1,16 @@
-import { motion } from 'framer-motion';
-
-import Menu from './menu/Menu.js';
-import LogoIcon from '../logoIcon/LogoIcon.js';
-
+import Navigator from './navigator/Navigator';
 import './header.scss';
 
+import detect from '../../resources/scripts/detect.js';
 function Header(){
+    return (
+        <div className='header'>
+            <div className={`header ${detect ? 'container container--mobil' : 'container'}`}>
+                <Navigator/> 
+            </div>
 
-    return (<motion.header className='header'>
-
-       <div className='container'>
-
-            <LogoIcon parrent={''} />
-
-            <Menu />
-
-       </div>
-
-    </motion.header>)
+        </div>
+    )
 }
 
 export default Header;

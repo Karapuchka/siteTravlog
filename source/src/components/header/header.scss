@@ -1,12 +1,6 @@
 .header{
+    width: 100dvw;
+    height: 100dvh;
 
-    padding: 10px 0;
-
-    border-bottom: 1px solid #a8a8a8;
-
-    .container{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+    background: radial-gradient(circle at -8% -8%, #fd7046, #ffffff 20%);
 }
