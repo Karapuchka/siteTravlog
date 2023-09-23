@@ -31,20 +31,20 @@ function Login() {
     
                 <motion.button onClick={()=> onOpenModal()}
                                initial={{y: -10, opacity: 0}} 
-                               animate={{y: 0, opacity: 1, background: '#fff'}} 
+                               animate={{y: 0, opacity: 1, background: 'rgb(255, 255, 255)'}} 
                                transition={{duration: .7}} 
-                               onTapStart={{background: '#5D50C6', color: '#fff'}} 
-                               onTapEnd={{background: '#fff', color: '#fff'}} 
+                               onTapStart={{background: 'rgb(93, 80, 198)', color: 'rgb(255, 255, 255)'}} 
+                               onTapEnd={{background: 'rgb(255, 255, 255)', color: 'rgb(255, 255, 255)'}} 
                                className='login__btn font-circularStd-Bold' 
                                type='submit' 
                                name='login-btn-entrance'>Log in</motion.button>
     
                 <motion.button onClick={()=> onOpenModal()} 
                                initial={{y: -10, opacity: 0}} 
-                               animate={{y: 0, opacity: 1, background: '#5D50C6'}} 
+                               animate={{y: 0, opacity: 1, background: 'rgb(93, 80, 198)'}} 
                                transition={{duration: .7}} 
                                onTapStart={{background: 'rgb(248, 94, 159)'}} 
-                               onTapEnd={{background: '#5D50C6'}} 
+                               onTapEnd={{background: 'rgb(93, 80, 198)'}} 
                                className='login__btn login__btn--singup font-circularStd-Bold' 
                                type='submit' 
                                name='login-btn-singup'>Sing up</motion.button>
@@ -57,16 +57,16 @@ function Login() {
 
             <motion.button onClick={()=> onOpenModal()}
                            initial={{y: -10, opacity: 0}} 
-                           animate={{y: 0, opacity: 1, background: '#fff'}} 
+                           animate={{y: 0, opacity: 1, background: 'rgb(255, 255, 255)'}} 
                            transition={{duration: .7}} 
-                           whileHover={{background: '#5D50C6', color: '#fff'}} 
+                           whileHover={{background: 'rgb(93, 80, 198)', color: 'rgb(255, 255, 255)'}} 
                            className='login__btn font-circularStd-Bold' 
                            type='submit' 
                            name='login-btn-entrance'>Log in</motion.button>
 
             <motion.button onClick={()=> onOpenModal()} 
                            initial={{y: -10, opacity: 0}} 
-                           animate={{y: 0, opacity: 1, background: '#5D50C6'}} 
+                           animate={{y: 0, opacity: 1, background: 'rgb(93, 80, 198)'}} 
                            transition={{duration: .7}} 
                            whileHover={{background: 'rgb(248, 94, 159)'}} 
                            className='login__btn login__btn--singup font-circularStd-Bold' 
