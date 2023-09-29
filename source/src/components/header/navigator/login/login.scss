@@ -16,6 +16,12 @@
         font-size: 14px;
 
         border-radius: 100px;
+
+        margin-right: 10px;
+    }
+
+    &_-bnt:last-child{
+        margin-right: 0;
     }
 
     &__btn--singup{

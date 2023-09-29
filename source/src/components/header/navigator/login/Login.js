@@ -59,7 +59,7 @@ function Login() {
                            initial={{y: -10, opacity: 0}} 
                            animate={{y: 0, opacity: 1, background: 'rgb(255, 255, 255)'}} 
                            transition={{duration: .7}} 
-                           whileHover={{background: 'rgb(93, 80, 198)', color: 'rgb(255, 255, 255)'}} 
+                           whileHover={{background: 'rgb(248, 94, 159)', color: 'rgb(255, 255, 255)'}} 
                            className='login__btn font-circularStd-Bold' 
                            type='submit' 
                            name='login-btn-entrance'>Log in</motion.button>
