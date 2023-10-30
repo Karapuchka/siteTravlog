@@ -1,0 +1,69 @@
+.parallax{
+    width: 100dvw;
+    height: 100dvh;
+
+    position: relative;
+
+}
+
+.parallax__item{
+    position: absolute;
+    top: -5%;
+    left: -5%;
+
+    width: 110%;
+    height: 110%;
+}
+
+#parallax-1{
+    background: url('/img/login/bg-log-top.png') no-repeat center center/cover;
+    transition: all 1s ease;
+}
+#parallax-2{
+    background: url('/img/login/bg-log-center-1.png')  no-repeat center center/cover;
+    z-index: 6;
+    transition: all 1s ease;
+}
+#parallax-3{
+    background: url('/img/login/bg-log-center-2.png')  no-repeat center center/cover;
+    z-index: 5;
+    transition: all 1s ease;
+}
+#parallax-4{
+    background: url('/img/login/bg-log-center-3.png')  no-repeat center center/cover;
+    z-index: 4;
+    transition: all 1s ease;
+}
+#parallax-5{
+    background: url('/img/login/bg-log-center-4.png')  no-repeat center center/cover;
+    transition: all 1s ease;
+    z-index: 3;
+}
+#parallax-6{
+    background: url('/img/login/bg-log-center-5.png')  no-repeat center center/cover;
+    z-index: 2;
+    transition: all 1s ease;
+}
+#parallax-7{
+    background: url('/img/login/bg-log-bot-1.png')  no-repeat center center/cover;
+    z-index: 10;
+    transition: all 1s ease;
+    left: -7%;
+
+}
+#parallax-8{
+    background: url('/img/login/bg-log-bot-2.png')  no-repeat center center/cover;
+    z-index: 9;
+    transition: all 1s ease;
+}
+#parallax-9{
+    background: url('/img/login/bg-log-bot-3.png')  no-repeat center center/cover;
+    transition: all 1s ease;
+    z-index: 8;
+}
+#parallax-10{
+    background: url('/img/login/bg-log-bot-4.png')  no-repeat center center/cover;
+    z-index: 7;
+    transition: all 1s ease;
+    left: -10%;
+}

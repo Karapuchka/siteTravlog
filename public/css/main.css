@@ -1,0 +1,14 @@
+@import 'nullstyles.css';
+
+.wrapper{
+    min-width: 100%;
+    min-height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper-parallax{
+    overflow: hidden;
+}
