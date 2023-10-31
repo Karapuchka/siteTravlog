@@ -34,7 +34,33 @@ const storageFile = multer.diskStorage({
 const upload = multer({storage: storageFile});
 
 app.get('/', (_, res)=>{
-    res.render('index.hbs')
+res.render('index.hbs',{
+    title: 'Авторизация',
+    loginError: '',
+})
+});
+
+app.post('/login', urlcodedParsers, (req, res)=>{
+    if(!req.body) return res.statusCode(400);
+
+    pool.query('SELECT * FROM users', (err, data)=>{
+        if(err) return console.log(err);
+
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].login == req.body.login && data[i].password == req.body.password){
+                return res.redirect('/home');
+            }            
+        }
+
+        return res.render('index.hbs', {
+            title: 'Пользователь не найден!',
+            loginError: 'login-error'
+        });
+    })
+});
+
+app.get('/register', (_, res)=>{
+    res.render('register.hbs')
 });
 
 app.listen(3000, ()=>{

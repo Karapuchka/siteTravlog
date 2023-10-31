@@ -22,7 +22,25 @@
             <div class="parallax__item" id="parallax-9"  data-show="80"></div>
             <div class="parallax__item" id="parallax-10" data-show="80"></div>
         </div>
-        <div class="contaner"></div>
+           <div class="container login-content">
+                <form class="login-form" name="formLogin" action="/login" method="post">
+                    <div class="logo login__logo">
+                        <div class="logo__img"><img src="/img/logo.png" alt="Логотип" class="logo__img__icon"></div>
+                        <p class="logo__text">Travel</p>
+                    </div>
+                    <h2 class="login__title {{loginError}}">{{title}}</h2>
+                    <div class="login-form__group">
+                        <label for="login" class="login-form__label" id="labelLogin">Логин:</label>
+                        <input type="text" id="login" name="login" placeholder="Введите логин" class="login-form__input">
+                    </div>
+                    <div class="login-form__group">
+                        <label for="password" class="login-form__label" id="labelPassword">Пароль:</label>
+                        <input type="text" id="password" name="password" placeholder="Введите пароль" class="login-form__input">
+                    </div>
+                    <button type="submit" id="btn-login" name="btnLogin" class="btn-def">Войти</button>
+                    <a href="/register" class="login__link">Регистрация</a>
+                </form>
+           </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
