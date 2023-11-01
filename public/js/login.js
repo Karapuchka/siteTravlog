@@ -16,28 +16,19 @@ document.onmousemove = (e)=>{
 }
 
 fromLogin.elements.btnLogin.onclick = (e)=>{
-    if(fromLogin.elements.login.value == '' ){
 
-        e.preventDefault();
-
-        fromLogin.elements.login.style.boxShadow = '0 0 10px red';
-        labelLogin.style.color = 'red';
-    }
-
-    if(fromLogin.elements.password.value == ''){
-        e.preventDefault();
-
-        fromLogin.elements.password.style.boxShadow = '0 0 10px red';
-        labelPassword.style.color = 'red';
+    for (let i = 0; i < fromLogin.elements.length - 1; i++) {
+        if(fromLogin.elements[i].value == ''){
+            e.preventDefault();
+            gsap.to(fromLogin.elements[i], {boxShadow: '0 0 10px red'}, {duration: .4})
+            gsap.to(fromLogin.elements[i].parentNode.children[0], {color: 'red'}, {duration: .4})
+        }        
     }
 }
 
-fromLogin.elements.login.oninput = (e)=>{
-    fromLogin.elements.login.style.boxShadow = 'none';
-    labelLogin.style.color = 'black';
-}
-
-fromLogin.elements.password.oninput = (e)=>{
-    fromLogin.elements.password.style.boxShadow = 'none';
-    labelPassword.style.color = 'black';
+for (let i = 0; i < fromLogin.elements.length - 1; i++) {
+    fromLogin.elements[i].oninput = (e)=>{
+        fromLogin.elements[i].style.boxShadow = 'none';
+        fromLogin.elements[i].parentNode.children[0].style.color = 'black';
+    }
 }

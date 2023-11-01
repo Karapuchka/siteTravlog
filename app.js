@@ -49,6 +49,12 @@ app.post('/login', urlcodedParsers, (req, res)=>{
         for (let i = 0; i < data.length; i++) {
             if(data[i].login == req.body.login && data[i].password == req.body.password){
                 return res.redirect('/home');
+            }
+            else if(data[i].login == req.body.login && data[i].password != req.body.password){
+                return res.render('index.hbs', {
+                    title: 'Пароль введён неправильно!',
+                    loginError: 'login-error'
+                });
             }            
         }
 
@@ -60,8 +66,34 @@ app.post('/login', urlcodedParsers, (req, res)=>{
 });
 
 app.get('/register', (_, res)=>{
-    res.render('register.hbs')
+    res.render('register.hbs', {
+        title: 'Регистрация',
+        loginError: '',
+    })
 });
+
+app.post('/registr', urlcodedParsers, (req, res)=>{
+    if(!req.body) return res.sendStatus(400);
+
+    pool.query('SELECT * FROM users', (err, data)=>{
+        if(err) return console.log(err);
+
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].login == req.body.login){
+                return res.render('register.hbs', {
+                    title: 'Логин занят!',
+                    loginError: 'login-error',
+                });
+            }            
+        }
+
+        pool.query('INSERT INTO users (login, password, firstName, lastName, pathImg) VALUES(?,?,?,?,?)', [req.body.login, req.body.password, req.body.firstName, req.body.lastName, '/img/profile/profile-icon-default.webp'], (err)=>{
+            if(err) return console.log(err);
+        });
+    
+        res.redirect('/');
+    })
+})
 
 app.listen(3000, ()=>{
     console.log('Server ative. URL: http://localhost:3000/');
