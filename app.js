@@ -6,6 +6,8 @@ import multer from 'multer';
 
 const app = express();
 
+let user; //Инфомрация о пользователе
+
 //Настройка подключения к бд
 const pool = mysql.createPool({
     connectionLimit: 10,
@@ -48,6 +50,7 @@ app.post('/login', urlcodedParsers, (req, res)=>{
 
         for (let i = 0; i < data.length; i++) {
             if(data[i].login == req.body.login && data[i].password == req.body.password){
+                user = data[i];
                 return res.redirect('/home');
             }
             else if(data[i].login == req.body.login && data[i].password != req.body.password){
@@ -93,7 +96,40 @@ app.post('/registr', urlcodedParsers, (req, res)=>{
     
         res.redirect('/');
     })
-})
+});
+
+app.get('/home', (_, res)=>{
+    pool.query('SELECT * FROM post', (err, data)=>{
+        if(err) return console.log(err);
+
+        let posts = [];
+
+        pool.query('SELECT * FROM users', (err, dataUser)=>{
+            if(err) return console.log(err);
+
+            for (let i = 0; i < dataUser.length; i++) {
+
+                for (let j = 0; j < dataUser.length; j++) {
+                    if(data[i].idUser == dataUser[j].id){
+                        posts.push({
+                            title: data[i].name,
+                            userFirstName: dataUser[j].firstName,
+                            userLastName: dataUser[j].lastName,
+                            userImg: dataUser[j].pathImg,
+                        })
+                    } 
+                }
+            }
+        
+            res.render('home.hbs', {
+                profileImg: user.pathImg,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                posts: posts,
+            });
+        });
+    });
+});
 
 app.listen(3000, ()=>{
     console.log('Server ative. URL: http://localhost:3000/');

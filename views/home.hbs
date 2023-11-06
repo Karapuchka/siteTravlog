@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Главная</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container header__container">
+                <a href="/home" class="logo login__logo header-link">
+                    <div class="logo__img"><img src="/img/logo.png" alt="Логотип" class="logo__img__icon"></div>
+                    <p class="logo__text color-white">Travel</p>
+                </a>
+                <a href="/writePost" class="logo login__logo header-link">
+                    <div class="logo__img"><img src="/img/write-post.png" 'Написать пост' class="logo__img__icon"></div>
+                    <p class="logo__text color-white fs-20">Написать пост</p>
+                </a>
+                <a href="/profile" class="header__profile header-link">
+                    <p class="header__profile__text color-white">{{firstName}} {{lastName}}</p>
+                    <div class="header__profile__img"><img src="{{profileImg}}" alt="Профиль" class="header__profile__img__icon" ></div>
+                </a>
+            </div>
+        </header>
+        <main class="main">
+            <div class="container home-list">
+                {{#each posts}}
+                    <div class="home-list__item">
+                        <div class="home-list__item__content">
+                            <div class="home-list__item__user__img">
+                                <img src="{{userImg}}" class="home-list__item__user__img__icon" alt="Аватарка">
+                            </div>
+                            <div class="home-list__item__user__name">{{userFirstName}} {{userLastName}}</div>
+                        </div>
+                       <h3 class="home-list__item__title">{{title}}</h3>
+                       <form method="post" action="/getpost"><button class="btn-def">Читать</button></form>
+                    </div>
+                {{/each}}
+            </div>
+        </main>
+        <footer class="footer">
+            <p class="footer__text">Сайт разработан в образовательных целях</p>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+</body>
+</html>
