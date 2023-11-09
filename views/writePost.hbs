@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/home.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Главная</title>
+    <title>Написать пост</title>
 </head>
 <body>
     <div class="wrapper">
@@ -27,26 +26,14 @@
             </div>
         </header>
         <main class="main">
-            <div class="container home-list">
-                {{#each posts}}
-                    <div class="home-list__item">
-                        <div class="home-list__item__content">
-                            <div class="home-list__item__user__img">
-                                <img src="{{userImg}}" class="home-list__item__user__img__icon" alt="Аватарка">
-                            </div>
-                            <div class="home-list__item__user__name">{{userFirstName}} {{userLastName}}</div>
-                        </div>
-                       <h3 class="home-list__item__title">{{title}}</h3>
-                       <form method="post" action="/getpost/{{postId}}"><button class="btn-def">Читать</button></form>
-                    </div>
-                {{/each}}
-            </div>
+            <section class="container">
+              
+            </section>
         </main>
         <footer class="footer">
             <p class="footer__text">Сайт разработан в образовательных целях</p>
         </footer>
     </div>
-    
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
 </body>
 </html>

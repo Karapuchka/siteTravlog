@@ -116,6 +116,7 @@ app.get('/home', (_, res)=>{
                             userFirstName: dataUser[j].firstName,
                             userLastName: dataUser[j].lastName,
                             userImg: dataUser[j].pathImg,
+                            postId: data[i].id,
                         })
                     } 
                 }
@@ -128,6 +129,52 @@ app.get('/home', (_, res)=>{
                 posts: posts,
             });
         });
+    });
+});
+
+app.post('/getpost/:id', urlcodedParsers, (req, res)=>{
+ 
+    pool.query('SELECT * FROM post', (err, data)=>{
+        if(err) return console.log(err);
+
+        pool.query('SELECT * FROM users', (err, dataUser)=>{
+            if(err) return console.log(err);
+
+            for (let i = 0; i < dataUser.length; i++) {
+
+                for (let j = 0; j < dataUser.length; j++) {
+                    if(data[i].id == req.params.id){
+                        let pathImg = data[i].pathImg.replace(/\]/gi, '').replace(/\'/gi, '').replace(/\[/gi, '').split(','), 
+                            grade = data[i].grade.replace(/\]/gi, '').replace(/\'/gi, '').replace(/\[/gi, '').split(',');
+
+                        return res.render('post.hbs', {
+                            namePost: data[i].name,
+                            profileImg: user.pathImg,
+                            firstName: user.firstName,
+                            lastName: user.lastName,
+                            authorImg: dataUser[i].pathImg,
+                            authorFirstName: dataUser[j].firstName,
+                            authorLastName: dataUser[j].lastName,
+                            postCost: data[i].cost,
+                            postText: data[i].text,
+                            galary: pathImg,
+                            postGradeOne: grade[0],
+                            postGradeTwo: grade[1],
+                            postGradeTree: grade[2],
+                            postGradeFour: grade[3],
+                        });
+                    } 
+                }
+            }
+        });
+    });
+});
+
+app.get('/writePost', (_, res)=>{
+    res.render('writePost.hbs', {
+        profileImg: user.pathImg,
+        firstName: user.firstName,
+        lastName: user.lastName,
     });
 });
 

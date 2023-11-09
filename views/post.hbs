@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/post.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>{{namePost}}</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container header__container">
+                <a href="/home" class="logo login__logo header-link">
+                    <div class="logo__img"><img src="/img/logo.png" alt="Логотип" class="logo__img__icon"></div>
+                    <p class="logo__text color-white">Travel</p>
+                </a>
+                <a href="/writePost" class="logo login__logo header-link">
+                    <div class="logo__img"><img src="/img/write-post.png" 'Написать пост' class="logo__img__icon"></div>
+                    <p class="logo__text color-white fs-20">Написать пост</p>
+                </a>
+                <a href="/profile" class="header__profile header-link">
+                    <p class="header__profile__text color-white">{{firstName}} {{lastName}}</p>
+                    <div class="header__profile__img"><img src="{{profileImg}}" alt="Профиль" class="header__profile__img__icon" ></div>
+                </a>
+            </div>
+        </header>
+        <main class="main">
+            <section class="container post">
+                <header class="post__header">
+                    <div class="post__header__user">
+                        <div class="header__profile__img"><img src="{{authorImg}}" alt="Аватарка автора поста" class="header__profile__img__icon"></div>
+                        <p class="header__profile__text post__user__name">{{authorFirstName}} {{authorLastName}}</p>
+                    </div>
+                    <h3 class="post__title">{{namePost}}</h3>
+                </header>
+                <div class="post__info">
+                    <p class="post__info__item">Стоимость путишествия <span class="post__info__item__grade">{{postCost}}</span></p>
+                    <ul class="post__info__list">
+                        <li class="post__info__item">Оценки:</li>
+                        <li class="post__info__item">Удобство передвижения - <span class="post__info__item__grade">{{postGradeOne}}</span>,</li>
+                        <li class="post__info__item">Безопасность - <span class="post__info__item__grade">{{postGradeTwo}}</span>,</li>
+                        <li class="post__info__item">Население - <span class="post__info__item__grade">{{postGradeTree}}</span>,</li>
+                        <li class="post__info__item">Растительность - <span class="post__info__item__grade">{{postGradeFour}}</span>,</li>
+                    </ul>
+                </div>
+                <article class="post__article">{{postText}}</article>
+                <div class="post__galary">
+                    {{#each galary}}
+                        <div class="post__galary__img">
+                            <img src="{{this}}" alt="Изображение из галереи" class="post__galary__img__icon" />
+                        </div>
+                    {{/each}}
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__text">Сайт разработан в образовательных целях</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+</body>
+</html>
