@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/info.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Написать пост</title>
 </head>
@@ -26,14 +27,48 @@
             </div>
         </header>
         <main class="main">
-            <section class="container">
-              
-            </section>
+            <form action="/writePost" method="post" enctype="multipart/form-data" class="container info">
+                <div class="info__item">
+                    <div class="write-post__form">
+                        <div class="write-post__form__item">
+                            <label for="post-title">Название:</label>
+                            <input class="write-post__form__input js-input" type="text" name="postTitle" id="post-title">
+                        </div>
+                        <div class="write-post__form__item">Оценки:</div>
+                        <div class="write-post__form__item">
+                            <label for="post-grade1">Удобство передвижения</label>
+                            <input class="write-post__form__input js-input" type="text" name="postGrade1" id="post-grade1">
+                        </div>
+                        <div class="write-post__form__item">
+                            <label for="post-grade2">Безопасность</label>
+                            <input class="write-post__form__input js-input" type="text" name="postGrade2" id="post-grade2">
+                        </div>
+                        <div class="write-post__form__item">
+                            <label for="post-grade3">Население</label>
+                            <input class="write-post__form__input js-input" type="text" name="postGrade3" id="post-grade3">
+                        </div>
+                        <div class="write-post__form__item">
+                            <label for="post-grade4">Растительность</label>
+                            <input class="write-post__form__input js-input" type="text" name="postGrade4" id="post-grade4">
+                        </div>
+                        <div class="write-post__form__item">
+                            <label for="post-price">Стоимость путишествия</label>
+                            <input class="write-post__form__input js-input" type="text" name="postPrice" id="post-price">
+                        </div>
+                        <input class="write-post__form__input-file" type="file" name="postFile">
+                        <button class="btn-def" type="submit" id="btn-sub">Создать</button>
+                    </div>
+                </div>
+                <div class="info__item info__item--big">
+                    <textarea type="text" name="postText" id="post-text" placeholder="Введите текст" class="write-post__form__input-text js-input"> </textarea>
+                </div>
+            </form>
         </main>
         <footer class="footer">
             <p class="footer__text">Сайт разработан в образовательных целях</p>
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+    <script src="/js/writePost.js"></script>
 </body>
 </html>
