@@ -7,6 +7,7 @@ import multer from 'multer';
 const app = express();
 
 let user; //Инфомрация о пользователе
+let fileNameImgPost; //Название файла изображения для поста
 
 //Настройка подключения к бд
 const pool = mysql.createPool({
@@ -26,12 +27,22 @@ app.set('view engine', 'hbs');
 //Настройка работы с файлами пользователя
 const storageFile = multer.diskStorage({
     destination: (req, file, cd)=>{
-        cd(null, 'piblic/img/profile');
+        cd(null, 'public/img/profile');
+    },
+    filename: (req, file, cd)=>{
+        cd(null, file.originalname);
+        fileNameImgPost = file.originalname;
+    },
+});
+
+const storgeImagePost = multer.diskStorage({
+    destination: (req, file, cd)=>{
+        cd(null, `'public/img/post/${user.id}'`);
     },
     filename: (req, file, cd)=>{
         cd(null, file.originalname);
     },
-});
+})
 
 const upload = multer({storage: storageFile});
 
@@ -101,18 +112,19 @@ app.post('/registr', urlcodedParsers, (req, res)=>{
 app.get('/home', (_, res)=>{
     pool.query('SELECT * FROM post', (err, data)=>{
         if(err) return console.log(err);
-
         let posts = [];
 
         pool.query('SELECT * FROM users', (err, dataUser)=>{
             if(err) return console.log(err);
 
-            for (let i = 0; i < dataUser.length; i++) {
+            for (let i = 0; i < data.length; i++) {
 
                 for (let j = 0; j < dataUser.length; j++) {
+     
                     if(data[i].idUser == dataUser[j].id){
+     
                         posts.push({
-                            title: data[i].name,
+                            title: data[i].title,
                             userFirstName: dataUser[j].firstName,
                             userLastName: dataUser[j].lastName,
                             userImg: dataUser[j].pathImg,
@@ -121,6 +133,7 @@ app.get('/home', (_, res)=>{
                     } 
                 }
             }
+            console.log(posts);
         
             res.render('home.hbs', {
                 profileImg: user.pathImg,
@@ -144,11 +157,11 @@ app.post('/getpost/:id', urlcodedParsers, (req, res)=>{
 
                 for (let j = 0; j < dataUser.length; j++) {
                     if(data[i].id == req.params.id){
-                        let pathImg = data[i].pathImg.replace(/\]/gi, '').replace(/\'/gi, '').replace(/\[/gi, '').split(','), 
-                            grade = data[i].grade.replace(/\]/gi, '').replace(/\'/gi, '').replace(/\[/gi, '').split(',');
+                        let pathImg = data[i].pathImg.replace(/\]/gi, '').replace(/\"/gi, '').replace(/\[/gi, '').split(','), 
+                            grade = data[i].grade.replace(/\]/gi, '').replace(/\"/gi, '').replace(/\[/gi, '').split(',');
 
                         return res.render('post.hbs', {
-                            namePost: data[i].name,
+                            namePost: data[i].title,
                             profileImg: user.pathImg,
                             firstName: user.firstName,
                             lastName: user.lastName,
@@ -177,6 +190,19 @@ app.get('/writePost', (_, res)=>{
         lastName: user.lastName,
     });
 });
+
+app.post('/writePost', upload.any(''), (req, res)=>{
+    if(!req.body) return res.sendStatus(400);
+
+    let grade = [`${req.body.postGrade1}`,`${req.body.postGrade2}`,`${req.body.postGrade3}`,`${req.body.postGrade4}`];
+
+    pool.query('INSERT INTO post (idUser, title, text, cost, grade, pathImg) VALUES (?,?,?,?,?,?)', [user.id, req.body.postTitle, req.body.postText, req.body.postPrice, `${grade}`, `/img/post/${user.id}/${fileNameImgPost}`], (err)=>{
+        if(err) return console.log(err);
+
+
+        res.redirect('/home');
+    }); 
+})
 
 app.listen(3000, ()=>{
     console.log('Server ative. URL: http://localhost:3000/');
