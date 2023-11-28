@@ -133,7 +133,6 @@ app.get('/home', (_, res)=>{
                     } 
                 }
             }
-            console.log(posts);
         
             res.render('home.hbs', {
                 profileImg: user.pathImg,
@@ -203,6 +202,36 @@ app.post('/writePost', upload.any(''), (req, res)=>{
         res.redirect('/home');
     }); 
 })
+
+app.get('/profile', (_, res)=>{
+
+    pool.query('SELECT * FROM post', (err, data)=>{
+        if(err) return console.log(err);
+
+        let listPosts = [];
+
+        for (let i = 0; i < data.length; i++) {
+            if(user.id == data[i].idUser){
+                listPosts.push({title: data[i].title, id: data[i].id});
+            }            
+        }
+
+        res.render('profile.hbs', {
+            profileImg: user.pathImg,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            posts: listPosts,
+        });
+    });
+});
+
+app.post('/removePost/:id', urlcodedParsers, (req, res)=>{
+    pool.query('DELETE FROM post WHERE id=?', [req.params.id], (err)=>{
+        if(err) return console.log(err);
+
+        res.redirect('/profile');
+    })
+});
 
 app.listen(3000, ()=>{
     console.log('Server ative. URL: http://localhost:3000/');
