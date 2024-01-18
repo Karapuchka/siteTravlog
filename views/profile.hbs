@@ -29,15 +29,15 @@
         <main class="main">
             <section class="container profile">
                <div class="profile__item">
-                    <div class="profile__form__iamges"><img src="{{profileImg}}" class="profile__form__iamges__icon" alt="Аватарка пользователя"></div>
+                    <div class="profile__form__iamges"><img src="{{profileImg}}" id="user-avatar" class="profile__form__iamges__icon" alt="Аватарка пользователя"></div>
                     <form action="/getInfoUser" class="profile__form" name="profileForm" enctype="multipart/form-data" method="post">
                         <div class="profile__form__group">
                             <label class="profile__form__label" for="userFirstName">Имя:</label>
-                            <input class="profile__form__input" type="text" name="userFirstName" id="userFirstName" placeholder="Введите имя">
+                            <input class="profile__form__input" type="text" name="firstName" id="userFirstName" placeholder="Введите имя">
                         </div>
                         <div class="profile__form__group">
                             <label class="profile__form__label" for="userLastName">Фамилия:</label>
-                            <input class="profile__form__input" type="text" name="userLastName" id="userLastName" placeholder="Введите фамилию">
+                            <input class="profile__form__input" type="text" name="lastName" id="userLastName" placeholder="Введите фамилию">
                         </div>
                         <div class="profile__form__group">
                             <label class="profile__form__label" for="userAvatar">Аватарка:</label>

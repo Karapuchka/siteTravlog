@@ -233,6 +233,36 @@ app.post('/removePost/:id', urlcodedParsers, (req, res)=>{
     })
 });
 
+app.post('/getInfoUser', upload.single('userAvatar'), (req, res)=>{
+    if(!req.body) return res.sendStatus(400);
+
+    let sourceRequest, sqlRequest; 
+    if(typeof req.file === 'undefined') { // Если пользователь изменяет данные о себе, но не меняет аватар
+        sourceRequest = [req.body.firstName, req.body.lastName, user.id];
+        sqlRequest = 'UPDATE users SET firstName=?, lastName=? WHERE id=?';
+    }else{// Если пользователь изменяет данные о себе и аватар
+        sourceRequest = [req.body.firstName, req.body.lastName, '/img/profile/' + req.file.filename, user.id];
+        sqlRequest = 'UPDATE users SET firstName=?, lastName=?, pathImg=? WHERE id=?';
+    } 
+
+    pool.query(sqlRequest, sourceRequest, (err)=>{
+        if(err) return console.log(err);
+    });
+
+    pool.query('SELECT * FROM users', (err, data)=>{
+        if(err) return console.log(err);
+
+        for (let i = 0; i < data.length; i++) {
+            if(user.id == data[i].id){
+                user = data[i];
+                break;
+            }
+        }
+
+        return res.redirect('/profile');
+    });
+});
+
 app.listen(3000, ()=>{
     console.log('Server ative. URL: http://localhost:3000/');
 });
